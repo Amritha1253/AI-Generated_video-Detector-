@@ -1,1 +1,2 @@
 # AI-Generated_video-Detector-
+This is a Flask web app that detects whether an uploaded video is real or AI-generated (deepfake). It uses a deep learning model trained on real and fake video datasets, extracts frames from the uploaded file, and shows predictions with a confidence score. To run, install dependencies from requirements.txt, train or load the model, and start the app with python app.py. Built with Python, Flask, PyTorch, and OpenCV.
