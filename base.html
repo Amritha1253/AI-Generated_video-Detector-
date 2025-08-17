@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}AI Video Detector{% endblock %}</title>
+
+  <!-- Modern, minimal fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <meta name="color-scheme" content="dark light" />
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="site-header">
+      <div class="brand">
+        <div class="logo">🛡️</div>
+        <div class="brand-text">
+          <h1>AI-Generated Video Detector</h1>
+          <p class="muted">Upload a clip • Get a verdict • Stay safe</p>
+        </div>
+      </div>
+      <nav class="nav-actions">
+        <a class="ghost" href="https://example.com" target="_blank" rel="noreferrer">Docs</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-stack">
+            {% for cat, msg in messages %}
+              <div class="flash {{ cat }}">{{ msg }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <p class="muted">For demonstration only. Results may be imperfect on challenging clips.</p>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
